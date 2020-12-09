@@ -12,6 +12,7 @@ program exercise0101
 
     integer :: goukei, i
 
+    ! これより前で値が入っている可能性があるから0を代入す（習慣）
     goukei = 0
 
     do i = 1, nall

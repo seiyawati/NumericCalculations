@@ -21,14 +21,28 @@ program freefall
 
     open(10, file='output.dat', status='replace') ! ファイルの指定, 5番と6番は使わない statusにはold, new. replace
 
-    i=0
-    do while(z<1000)
+    ! i=0
+    ! do while(z<1000)
+
+    !     t =i
+    !     z = (1.0d0/2.0d0)*g*t**2d0 + v0*t
+    !     v = g*t + v0
+    !     write(10,*) t,z,v
+    !     i=i+1
+
+    ! enddo
+
+    ! do whileをdo ifで
+    do i=0,1000
 
         t =i
         z = (1.0d0/2.0d0)*g*t**2d0 + v0*t
         v = g*t + v0
+        if(z>1000)then
+            exit
+            ! cycle
+        endif
         write(10,*) t,z,v
-        i=i+1
 
     enddo
 

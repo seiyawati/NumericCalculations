@@ -1,8 +1,20 @@
 module utils
 
     implicit none
+    real(8) :: total_global ! グローバル変数
 
 contains
+
+    !------------------------------------------
+    function read_num() result(num)
+
+        implicit none
+
+        integer :: num
+
+        read(*,*) num
+
+    end function read_num
 
     !------------------------------------------
     function sum_val(n) result(total) !resultの変数に値を代入することで、それが関数の返り値となる
@@ -19,8 +31,10 @@ contains
         enddo
 
         total = sum( value )
+        total_global = total
 
     end function sum_val
+
     !------------------------------------------
 
     subroutine print_values(n)
@@ -36,6 +50,16 @@ contains
     
     end subroutine print_values
 
+    !-------------------------------------
+
+    subroutine print_total()
+
+        implicit none
+
+        print *, 'total_value = ',total_global
+    
+    end subroutine print_total
+
 end module utils
 
 !-------------------------------------------------
@@ -48,14 +72,13 @@ program sumall
     integer :: i,n
     real(8) :: total
 
-    read(*,*) n
+    n = read_num()
 
     total = sum_val(n)
 
     call print_values(n)
 
-    print *, total
-
+    call print_total()
     
 end program sumall
 

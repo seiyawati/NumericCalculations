@@ -21,12 +21,12 @@ program freefall
 
     open(10, file='output.dat', status='replace') ! ファイルの指定, 5番と6番は使わない statusにはold, new. replace
 
-    do i=1,10
+    do i=0,10
 
         t =i
         z = (1.0d0/2.0d0)*g*t**2d0 + v0*t
         v = g*t + v0
-        write(10,*) z,v
+        write(10,*) t,z,v
 
     enddo
 

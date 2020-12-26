@@ -80,5 +80,3 @@ program Rungekutta
        func2 =  -y1+sin((sqrt(3.0)/2.0)*x)
     
     end function
-
-end program Rungekutta

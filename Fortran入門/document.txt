@@ -1,0 +1,13 @@
+integer  整数型
+real  実数型
+complex  複素数型
+character  文字型
+logical  論理型
+
+real  単精度実数型 4byte
+real(8)  倍精度実数型 8byte
+
+complex 単精度複素数型 8byte
+complex(8) 倍精度実数型 16byte
+
+倍精度の時はd0をつける

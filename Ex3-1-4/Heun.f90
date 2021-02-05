@@ -38,8 +38,8 @@ program Heun_method
      k11 = bibun1(x,y)
      k12 = bibun2(x,y)
 
-     k12 = bibun1(t+h, x+h*k11) 
-     
+     k12 = bibun1(t + h, x + h * k11) 
+     x = x + h * 0.5d0 * (k11 + k12)
      y = y + h * k12
 
      write(10,'(3(1X,ES13.6E2))') t, x, y

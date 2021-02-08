@@ -1,75 +1,53 @@
-program Euler_method
-    implicit none
-    double precision :: t0, x0, y0, h, t, x, y, tmax, &
-      k11, k12
-    integer :: last
-    double precision, parameter :: a = 1.0d0, b = 2.0d0, c = 1.0d0, d = 3.0d0
+program Euler
+  implicit none
+  DOUBLE PRECISION :: t0, x0, h, t, x, tmax, k1, k2, y0, gosa, gosa0
+  INTEGER :: last
 
+  WRITE(*,*) 'Input initial values for (t,x)'
+  READ(*,*) t0, x0
+  WRITE(*,*) 'Input time step h'
+  READ(*,*) h
+  WRITE(*,*) 'Input tmax'
+  READ(*,*) tmax
 
-    write(*,*) 'Input initial values for (t,x,y)'
-    read(*,*) t0, x0, y0
+  y0 = x0 - t0**3
 
-    write(*,*) 'Input time step h'
-    read(*,*) h
+  OPEN(10, file='sol.dat', form='formatted', action='write')
 
-    write(*,*) 'Input tmax'
-    read(*,*) tmax
-
-    open(10, file='result.txt', form='formatted', action='write')
-
-    write(10,'(A,ES13.6E2)') 't0 = ', t0
-    write(10,'(A,ES13.6E2)') 'x0 = ', x0
-    write(10,'(A,ES13.6E2)') 'y0 = ', y0
-    write(10,'(A,ES13.6E2)') 'h = ', h
-    write(10,'(A,ES13.6E2)') 'tmax = ', tmax
-    write(10,*)
-    write(10,*)
-    write(10,'(3A14)') 't', 'x', 'y'
-
-    t = t0 ; x = x0 ; y = y0 ; last = 0
-    Integrator : do
-     if(t + h >= tmax) then
+  t = t0 ; x = x0 ; last = 0 ; gosa0 = 0.0d0
+  Integrator : do
+    if(t + h >= tmax) then
       h = tmax - t
       last = 1
-     endif
+    endif
+    k1 = bibun1(t,x)
+    x = x + h * k1
+    t = t + h
+    WRITE(10,'(2(1X,ES16.8E3))') t, x
 
-     t = t + h 
+! difference from exact solution
+    gosa = x - ( t**3 + 1.0d0 / (1.0d0 - (1.0d0 - 1.0d0 / y0) * dexp(-t) ) ) ! dexp:指数
+    gosa0 = max(gosa0,dabs(gosa)) ! dabs:絶対値
 
-     k11 = bibun1(x,y)
-     k12 = bibun2(x,y)
+    if(last == 1) exit Integrator
+  enddo Integrator
 
-     x = x + h * k11
-     y = y + h * k12
+  WRITE(*,'(A,ES13.5E3)') 'error = ', gosa0
+  stop
 
-     write(10,'(3(1X,ES13.6E2))') t, x, y
+  contains
 
-     if(last == 1) exit Integrator
-
-    enddo Integrator
-
-    stop
-
-    contains
-
-
-    function bibun1 (x,y)
+  function bibun1(p,q)
     implicit none
-    double precision, intent(IN) :: x, y
-    double precision :: bibun1
+    DOUBLE PRECISION, INTENT(IN) :: p, q ! intent(in)は引数を受け取る, エラーを吐いてくれる
+    DOUBLE PRECISION :: bibun1 , p2, p3, p6, q2
 
-    bibun1 = a * x - b * x * y
+    p2 = p * p
+    p3 = p * p2
+    p6 = p3 * p3
+    q2 = q * q
+    bibun1 = 3.0d0 * p2 - p3 -p6 + ( 2.0d0 * p3 + 1.0d0 ) * q - q2
 
-    end function bibun1
+  end function bibun1
 
-
-    function bibun2 (x,y)
-    implicit none
-    double precision, intent(IN) :: x, y
-    double precision :: bibun2
-
-    bibun2 = - c * y + d * x * y
-
-    end function bibun2
-
-end program
-
+end program Euler

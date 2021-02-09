@@ -27,7 +27,7 @@ program RungeKutta_method
     k2 = bibun1(t+0.5d0*h, x+0.5d0*h*k1)
     k3 = bibun1(t+0.5d0*h, x+0.5d0*h*k2)
     k4 = bibun1(t+h, x+h*k3)
-    x = x + h * (k1+k2+2*k3+k4) / 6.0d0
+    x = x + h * (k1+2*k2+2*k3+k4) / 6.0d0
     t = t + h
     if(y0 + (1.0d0 - y0) * dexp(t0 - t) <= 0.0d0) then
       WRITE(*,'(A,ES13.5E3)') &
@@ -51,7 +51,7 @@ program RungeKutta_method
 
   function bibun1(p,q)
     implicit none
-    DOUBLE PRECISION, INTENT(IN) :: p, q ! intent(in)は引数を受け取る, エラーを吐いてくれる
+    DOUBLE PRECISION, INTENT(IN) :: p, q ! intent(in) is accept args, echo error
     DOUBLE PRECISION :: bibun1 , p2, p3, p6, q2
 
     p2 = p * p

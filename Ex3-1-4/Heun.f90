@@ -1,4 +1,4 @@
-program Euler
+program Heun
   implicit none
   DOUBLE PRECISION :: t0, x0, h, t, x, tmax, k1, k2, y0, gosa, gosa0
   INTEGER :: last
@@ -51,4 +51,4 @@ program Euler
 
   end function bibun1
 
-end program Euler
+end program Heun

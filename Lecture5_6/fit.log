@@ -1,0 +1,222 @@
+
+
+*******************************************************************************
+Wed Feb 10 14:33:01 2021
+
+
+FIT:    data read from './gosa.txt' us 1:2
+        format = x:z
+        x range restricted to [-4.00000 : 0.00000]
+        #datapoints = 3
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a1 * x + b1
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 2.3271099031e+00   0.00e+00  1.68e+00    1.000000e+00   1.000000e+00
+   5 8.2362150000e-07  -1.45e-08  1.68e-04    1.001662e+00   1.225840e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 8.23622e-07
+rel. change during last iteration : -1.44751e-13
+
+degrees of freedom    (FIT_NDF)                        : 1
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000907536
+variance of residuals (reduced chisquare) = WSSR/ndf   : 8.23622e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1              = 1.00166          +/- 0.0006417    (0.06407%)
+b1              = 0.122584         +/- 0.001386     (1.131%)
+
+correlation matrix of the fit parameters:
+                a1     b1     
+a1              1.000 
+b1              0.926  1.000 
+
+
+*******************************************************************************
+Wed Feb 10 14:33:01 2021
+
+
+FIT:    data read from './gosa.txt' us 1:3
+        format = x:z
+        x range restricted to [-4.00000 : 0.00000]
+        #datapoints = 3
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a2 * x + b2
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a2            b2           
+   0 3.2637773755e+01   0.00e+00  1.68e+00    1.000000e+00   1.000000e+00
+   5 2.1241500000e-06  -1.26e-09  1.68e-04    2.002845e+00  -1.894300e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 2.12415e-06
+rel. change during last iteration : -1.2561e-14
+
+degrees of freedom    (FIT_NDF)                        : 1
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00145745
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.12415e-06
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a2              = 2.00285          +/- 0.001031     (0.05146%)
+b2              = -0.18943         +/- 0.002226     (1.175%)
+
+correlation matrix of the fit parameters:
+                a2     b2     
+a2              1.000 
+b2              0.926  1.000 
+
+
+*******************************************************************************
+Wed Feb 10 14:33:01 2021
+
+
+FIT:    data read from './gosa.txt' us 1:4
+        format = x:z
+        x range restricted to [-4.00000 : 0.00000]
+        #datapoints = 3
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a3 * x + b3
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a3            b3           
+   0 2.1130737700e+02   0.00e+00  1.68e+00    1.000000e+00   1.000000e+00
+   4 9.3299266667e-05  -4.65e-01  1.68e-04    3.985320e+00  -1.060197e+00
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 9.32993e-05
+rel. change during last iteration : -4.65152e-06
+
+degrees of freedom    (FIT_NDF)                        : 1
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00965915
+variance of residuals (reduced chisquare) = WSSR/ndf   : 9.32993e-05
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a3              = 3.98532          +/- 0.00683      (0.1714%)
+b3              = -1.0602          +/- 0.01475      (1.392%)
+
+correlation matrix of the fit parameters:
+                a3     b3     
+a3              1.000 
+b3              0.926  1.000 
+
+
+*******************************************************************************
+Wed Feb 10 14:33:16 2021
+
+
+FIT:    data read from './gosa.txt' us 1:2
+        format = x:z
+        x range restricted to [-4.00000 : 0.00000]
+        #datapoints = 3
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a1 * x + b1
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 2.3271099031e+00   0.00e+00  1.68e+00    1.000000e+00   1.000000e+00
+   5 8.2362150000e-07  -1.45e-08  1.68e-04    1.001662e+00   1.225840e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 8.23622e-07
+rel. change during last iteration : -1.44751e-13
+
+degrees of freedom    (FIT_NDF)                        : 1
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000907536
+variance of residuals (reduced chisquare) = WSSR/ndf   : 8.23622e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1              = 1.00166          +/- 0.0006417    (0.06407%)
+b1              = 0.122584         +/- 0.001386     (1.131%)
+
+correlation matrix of the fit parameters:
+                a1     b1     
+a1              1.000 
+b1              0.926  1.000 
+
+
+*******************************************************************************
+Wed Feb 10 14:33:16 2021
+
+
+FIT:    data read from './gosa.txt' us 1:3
+        format = x:z
+        x range restricted to [-4.00000 : 0.00000]
+        #datapoints = 3
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a2 * x + b2
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a2            b2           
+   0 3.2637773755e+01   0.00e+00  1.68e+00    1.000000e+00   1.000000e+00
+   5 2.1241500000e-06  -1.26e-09  1.68e-04    2.002845e+00  -1.894300e-01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 2.12415e-06
+rel. change during last iteration : -1.2561e-14
+
+degrees of freedom    (FIT_NDF)                        : 1
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00145745
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.12415e-06
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a2              = 2.00285          +/- 0.001031     (0.05146%)
+b2              = -0.18943         +/- 0.002226     (1.175%)
+
+correlation matrix of the fit parameters:
+                a2     b2     
+a2              1.000 
+b2              0.926  1.000 
+
+
+*******************************************************************************
+Wed Feb 10 14:33:16 2021
+
+
+FIT:    data read from './gosa.txt' us 1:4
+        format = x:z
+        x range restricted to [-4.00000 : 0.00000]
+        #datapoints = 3
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a3 * x + b3
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a3            b3           
+   0 2.1130737700e+02   0.00e+00  1.68e+00    1.000000e+00   1.000000e+00
+   4 9.3299266667e-05  -4.65e-01  1.68e-04    3.985320e+00  -1.060197e+00
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 9.32993e-05
+rel. change during last iteration : -4.65152e-06
+
+degrees of freedom    (FIT_NDF)                        : 1
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00965915
+variance of residuals (reduced chisquare) = WSSR/ndf   : 9.32993e-05
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a3              = 3.98532          +/- 0.00683      (0.1714%)
+b3              = -1.0602          +/- 0.01475      (1.392%)
+
+correlation matrix of the fit parameters:
+                a3     b3     
+a3              1.000 
+b3              0.926  1.000 

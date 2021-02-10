@@ -1,7 +1,7 @@
-program Euler
+program Runge_Kutta
   implicit none
-  double precision :: t0, x0, y0, h, t, x, y, tmax, &
-    k11, k12
+  double precision :: t0, x0, y0, h, t, x, xe, y, tmax, &
+    k11, k12, k13, k14
   integer :: last
   double precision, parameter :: a = 1.0d0, b = 2.0d0, c = 1.0d0, d = 3.0d0
 
@@ -71,5 +71,5 @@ program Euler
 
   end function bibun2
   
-end program Euler
+end program Runge_Kutta
   

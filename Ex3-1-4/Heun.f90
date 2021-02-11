@@ -33,7 +33,7 @@ program Heun
     if(last == 1) exit Integrator
   enddo Integrator
 
-  WRITE(*,'(A,ES13.5E3)') 'error = ', gosa0
+  WRITE(*,'(A,ES13.5E3)') 'log10(error) = ', dlog10(gosa0)
   stop
 
   contains

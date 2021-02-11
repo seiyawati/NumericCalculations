@@ -1,7 +1,7 @@
 program Runge_Kutta
   implicit none
   double precision :: t0, x0, y0, h, t, x, xe, y, tmax, &
-    k11, k12, k13, k14
+    k1x, k2x, k3x, k4x, k1y, k2y, k3y, k4y
   integer :: last
   double precision, parameter :: a = 1.0d0, b = 2.0d0, c = 1.0d0, d = 3.0d0
 
@@ -29,17 +29,23 @@ program Runge_Kutta
   t = t0 ; x = x0 ; y = y0 ; last = 0
   Integrator : do
     if(t + h >= tmax) then
-    h = tmax - t
-    last = 1
+      h = tmax - t
+      last = 1
     endif
 
     t = t + h 
 
-    k11 = bibun1(x,y)
-    k12 = bibun2(x,y)
+    k1x = bibun1(x,y)
+    k1y = bibun2(x,y)
+    k2x = bibun1(x+0.5*h*k1x, y+0.5*h*k1y)
+    k2y = bibun2(x+0.5*h*k1x, y+0.5*h*k1y)
+    k3x = bibun1(x+0.5*h*k2x, y+0.5*h*k2y)
+    k3y = bibun2(x+0.5*h*k2x, y+0.5*h*k2y)
+    k4x = bibun1(x+h*k3x, y+h*k3y)
+    k4y = bibun2(x+h*k3x, y+h*k3y)
 
-    x = x + h * k11
-    y = y + h * k12
+    x = x + h * (k1x+2*k2x+2*k3x+k4x) / 6.0d0
+    y = y + h * (k1y+2*k2y+2*k3y+k4y) / 6.0d0
 
     write(10,'(3(1X,ES13.6E2))') t, x, y
 

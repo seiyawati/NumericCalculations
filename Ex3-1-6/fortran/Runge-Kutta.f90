@@ -78,4 +78,3 @@ program Runge_Kutta
   end function bibun2
   
 end program Runge_Kutta
-  

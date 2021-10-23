@@ -1,0 +1,29 @@
+&CONTROL_DATA
+nb = 2 ! number of bubble
+h = 1.0e-9 ! time_step_for_computation
+Tmax = 1.0e-4 ! maximum_time_of_computation
+eps = 1.0e-6 ! tolerance_of_RKF45_scheme 
+Tprt = 5.0e-7 ! output_interval_of_pressure_distribution 
+Xmin = -1.0e-3 ! x_minimum_of_output_interval 
+Xmax = 5.0e-3 ! x_maximum_of_output_interval
+Xint = 1000 ! number_of_division_of_output_interval
+/
+&BUBBLE0
+Rref = 1.0e-5 ! reference_radius
+Pref = 2.500e3 ! reference_pressure
+sigma = 7.275e-2 ! surface_tension
+kappa = 1.666667d0 ! specific_heat_ratio
+Pv = 2.337e3 ! vapor pressure
+/
+&BUBBLEs
+x = 0.0      0.5e-3
+y = 0.0      0.0
+z = 0.0      0.0
+R0 = 1.0e-5  1.0e-5
+v0 = 0.0     1.0
+/
+&LIQUID_DATA
+Rho_L = 998.2 ! liquid_density
+Pinf = 1.0e5 ! pressure_at_infinity
+Va = 1478.0 ! speed_of_sound
+/

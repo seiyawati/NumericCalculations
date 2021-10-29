@@ -108,4 +108,14 @@ program Runge_Kutta_method
               ) / ( r * (1 - v / Va )) 
   end function bibun2
 
+  function func5(xi, xj)
+    implicit none
+    double precision, intent(IN) :: xi, xj
+    double precision :: func5, dij
+
+    dij = abs(xi - xj)
+
+    func5 = t - (dij/Pinf)
+  end function func5
+
 end program Runge_Kutta_method

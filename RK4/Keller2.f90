@@ -1,31 +1,35 @@
-program Runge_Kutta_method
+program synchronization
   implicit none
-  DOUBLE PRECISION :: t, &
+  double precision :: x_, y_, z_, R0_, V0_,  &
     k11, k21, k31, k41, k12, k22, k32, k42
-  INTEGER :: k, last
-  integer :: nb
-  double precision :: h, Tmax, eps, Tprt, Xmin, Xmax, Xint, &
+  integer :: nb, last, k
+  double precision :: t, h, Tmax, eps, Tprt, Xmin, Xmax, Xint, &
     Rref, Pref, sigma, kappa, Pv, Rho_L, Pinf, Va
-  double precision :: x(2), y(2), z(2), R0(2), V0(2), r(2), v(2)
+  double precision, allocatable, dimension(:) :: x, y, z, R0, V0, r, v
+  character :: fmt*80
   namelist /CONTROL_DATA/ nb, h, Tmax, eps, Tprt, Xmin, Xmax, Xint
   namelist /BUBBLE0/ Rref, Pref, sigma, kappa, Pv
-  namelist /BUBBLEs/ x, y, z, R0, V0
+  namelist /BUBBLEs/ x_, y_, z_, R0_, V0_
   namelist /LIQUID_DATA/ Rho_L, Pinf, Va
 
-  open(11,file='settings1.txt',status='old',action='read')
+  open(11,file='set_sync1c.txt',status='old',action='read')
   read(11,nml=CONTROL_DATA)
-!  allocate(x(nb)) 
-!  allocate(y(nb)) 
-!  allocate(z(nb)) 
-!  allocate(R0(nb)) 
-!  allocate(V0(nb)) 
+  allocate(x(nb)) 
+  allocate(y(nb)) 
+  allocate(z(nb)) 
+  allocate(R0(nb)) 
+  allocate(V0(nb)) 
   read(11,nml=BUBBLE0)
-  read(11,nml=BUBBLEs)
+  do k = 1, nb
+   read(11,nml=BUBBLEs)
+   x(k) = x_
+   y(k) = y_
+   z(k) = z_
+   R0(k) = R0_
+   V0(k) = V0_
+  enddo
   read(11,nml=LIQUID_DATA)
   close(11)
-
-!  allocate(r(nb)) 
-!  allocate(v(nb)) 
 
   open(10, file='result.txt', form='formatted', action='write')
 
@@ -33,7 +37,13 @@ program Runge_Kutta_method
   write(10,'(A,ES13.6E2)') 'Tmax = ', Tmax
   write(10,*)
   write(10,*)
-  write(10,'(3A14)') 't', 'r', 'v'
+  write(fmt,'(A,I1,A)') '(A14,', 2 *nb, '(A11,I3.3))'
+  write(10,fmt) 't', ( 'r', k, 'v', k, k = 1, nb )
+
+  allocate(r(nb)) 
+  allocate(v(nb)) 
+
+  write(fmt,'(A,I3.3,A)') '(', 1 + 2 *nb, '(1X,ES13.6E2))'
 
   t = 0.0d0 ; last = 0
   do k = 1, nb
@@ -41,6 +51,7 @@ program Runge_Kutta_method
    v(k) = V0(k)
   enddo
 
+  ! 時間発展
   Integrator : do
     if(t + h >= Tmax) then
       h = Tmax - t
@@ -48,6 +59,7 @@ program Runge_Kutta_method
     endif
 
     t = t + h 
+    ! 相互作用なしのルンゲクッタ
     do k = 1, nb
   
        k11 = bibun1(r(k),v(k))
@@ -67,7 +79,7 @@ program Runge_Kutta_method
 
     enddo
 
-    write(10,'(5(1X,ES13.6E2))') t, r(1), v(1), r(2), v(2)
+    write(10,fmt) t, (r(k), v(k), k = 1, nb)
 
     if(last == 1) exit Integrator
 
@@ -118,4 +130,4 @@ program Runge_Kutta_method
     func5 = t - (dij/Pinf)
   end function func5
 
-end program Runge_Kutta_method
+end program synchronization

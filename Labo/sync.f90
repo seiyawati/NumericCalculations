@@ -132,7 +132,7 @@ program synchronization
     IA : do j = 1, nb
       if ( j == i ) cycle IA
       dist = dsqrt( ( x(i) - x(j) )**2 + ( y(i) - y(j) )**2 + ( z(i) - z(j) )**2 )
-      tau = t - dist / Va
+      tau = t - dist / Va ! Eq5
       if(tau >= 0.0) then
        m = int(tau / h)
 

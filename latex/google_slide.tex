@@ -3,3 +3,34 @@
 \frac{\text{d}}{\text{dt}}f(t-R/c_{L}) = -R\left[\frac{1}{2}\dot{R}^2-\frac{p_{∞}-p(t, R)}{\rho_{L}}\right]\left(1-\frac{\dot{R}}{c_{L}}\right)
 
 \left(1-\frac{\dot{R}}{c_{L}}\right)R\dot{R}+\frac{3}{2}\left(1-\frac{\dot{R}}{3c_{L}}\right)\dot{R}^2 = -\left(1+\frac{\dot{R}}{c_{L}}+\frac{R}{c_{L}}\frac{\text{d}}{\text{dt}}\right)\frac{p_{∞}-p(t, R)}{\rho_{L}}
+
+% 球対象な状況下でナビエストークス方程式（粘性項を切り落としたもの）
+\frac{\partial v}{\partial t} + v\frac{\partial v}{\partial r} = -\frac{1}{\rho}\frac{\partial P}{\partial r}
+
+% 速度ポテンシャル
+v＝\frac{\partial \phi}{\partial r}
+
+% ベルヌーイの式
+\frac{\partial }{\partial r}\left[\frac{\partial \phi}{\partial t}(t, r)+\frac{1}{2}\left(\frac{\partial \phi}{\partial r}(t,r)\right)^2+\int_{}^{p(t,r)}\frac{\text{d}p}{\rho} \right] = 0
+
+% 波動方程式
+\frac{\partial^2 \phi}{\partial t^2}-c^2\triangle\phi=0
+
+% 波動方程式の解の一つ
+\phi(t,r)=\frac{f(t-r/c_{L})}{r}
+
+% 運動学的境界条件
+\dot{R}=\frac{\partial \phi}{\partial r}
+\dot{R}=\frac{\partial \phi}{\partial r}=ー\frac{f(t-R(t)/c_{L})}{R(t)^2}-\frac{1}{c_{L}}\frac{f'(t-R(t)/c_{L})}{R(t)}
+
+% ベルヌーイの式をrについてR(t)から+∞まで積分した結果
+p(t,R(t))=p_{∞}-\rho\left[\frac{\partial \phi}{\partial t}(t, r)+\frac{1}{2}\left(\frac{\partial \phi}{\partial r}(t,r)\right)^2\right]=p_{∞}-\rho\left\{\frac{f'(t-R(t)/c_{L})}{R(t)}+\frac{1}{2}\dot{R(t)^2}\right\}
+
+% ケラー方程式
+\left(1-\frac{\dot{R}}{c_{L}}\right)R\ddot{R}+\frac{3}{2}\left(1-\frac{\dot{R}}{3c_{L}}\right)\dot{R}^2 = -\left(1+\frac{\dot{R}}{c_{L}}+\frac{R}{c_{L}}\frac{\text{d}}{\text{dt}}\right)\frac{p_{∞}-p(t, R)}{\rho_{L}}
+
+% 力学的境界条件
+P(t,R)=p_{v} + \overline{p_{G}}\left(\frac{\overline{R}}{R}\right)^{3k}-\frac{2\sigma}{R}
+
+% レイリープリセット方程式
+R\ddot{R}+\frac{3}{2}\dot{R}^2 + \frac{p_{∞}-p_{B}(R(t))+\frac{2\sigma}{R(t)}}{\rho_{L}} = 0

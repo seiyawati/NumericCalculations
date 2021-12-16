@@ -1,9 +1,3 @@
-\acute{f}(t-R/c_{L}) = -R\left[\frac{1}{2}\dot{R}^2-\frac{p_{∞}ーp(t, R)}{\rho_{L}}\right]
-
-\frac{\text{d}}{\text{dt}}f(t-R/c_{L}) = -R\left[\frac{1}{2}\dot{R}^2-\frac{p_{∞}-p(t, R)}{\rho_{L}}\right]\left(1-\frac{\dot{R}}{c_{L}}\right)
-
-\left(1-\frac{\dot{R}}{c_{L}}\right)R\dot{R}+\frac{3}{2}\left(1-\frac{\dot{R}}{3c_{L}}\right)\dot{R}^2 = -\left(1+\frac{\dot{R}}{c_{L}}+\frac{R}{c_{L}}\frac{\text{d}}{\text{dt}}\right)\frac{p_{∞}-p(t, R)}{\rho_{L}}
-
 % 球対象な状況下でナビエストークス方程式（粘性項を切り落としたもの）
 \frac{\partial v}{\partial t} + v\frac{\partial v}{\partial r} = -\frac{1}{\rho}\frac{\partial P}{\partial r}
 
@@ -34,3 +28,11 @@ P(t,R)=p_{v} + \overline{p_{G}}\left(\frac{\overline{R}}{R}\right)^{3k}-\frac{2\
 
 % レイリープリセット方程式
 R\ddot{R}+\frac{3}{2}\dot{R}^2 + \frac{p_{∞}-p_{B}(R(t))+\frac{2\sigma}{R(t)}}{\rho_{L}} = 0
+
+% 圧力変動分
+p_{ij}(t)=-\rho_{L}(\frac{\partial \phi_{j}}{\partial t}+\frac{1}{2}\left(\frac{\partial \phi_{j}}{\partial r}\right)^2)(t,|x_{i}-x_{j}|)
+
+% 相互作用する気泡の運動方程式
+\left(1-\frac{\dot{R_{i}}}{c_{∞}}\right)R_{i}\ddot{R_{i}}+\frac{3}{2}\left(1-\frac{\dot{\dot{R}_{i}}}{3c_{∞}}\right)\dot{R_{i}}^2 = \frac{1}{\rho}\left(1+\frac{\dot{R_{i}}}{c_{∞}}\right)\left[p_{B,i}(R_{i})-\left(p_{∞}＋\sum_{j \neq i}p_{ij}\right)\right]+\frac{R_{i}}{c_{∞}\rho}\frac{\text{d}}{\text{d}t}\left[p_{B,i}(R_{i}(t))-\sum_{j\neq i}p_{ij}(t)\right]
+
+p_{B,i}(R_{i})=p_{V,i}+\overline{p_{G,i}}\left(\frac{\overline{R_{i}}}{R_{i}}\right)^{3k}-\frac{2\sigma}{R_{i}}

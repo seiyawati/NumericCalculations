@@ -1,0 +1,258 @@
+
+\documentclass[11pt,a4j]{jreport}
+
+\usepackage{comment}
+\usepackage{float}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage[dvipdfmx]{pict2e}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{underscore}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{ulem}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage[ipaex]{pxchfon}
+
+\usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+
+\vspace{20mm}
+{\Large\noindent 2022年度 卒業(学士)論文}\\
+\vspace{50mm}
+{\huge\noindent\textbf{二気泡系の振動同調現象の解析}}\\
+
+
+\vspace{40mm}
+
+{\Large\noindent
+2022年3月5日\\
+\vspace{\baselineskip}
+指導教員　大縄 将史\\
+\vspace{\baselineskip}
+東京海洋大学\\
+所属 海洋環境科学科\\
+\vspace{\baselineskip}
+学籍番号　1731016　名前　川本聖也\\
+}
+\vspace{40mm}
+
+\end{center}
+
+\thispagestyle{empty}
+\clearpage
+
+%=====================================================================================
+\renewcommand{\abstractname}{要旨}
+
+\begin{abstract}
+研究の要旨。
+\end{abstract}
+
+%=====================================================================================
+
+% 目次の表示
+\tableofcontents
+
+%=====================================================================================
+\pagestyle{fancy}
+\lhead{\rightmark}
+\renewcommand{\chaptermark}[1]{\markboth{第\ \normalfont\thechapter\ 章~~#1}{}}
+%=====================================================================================
+
+\chapter{はじめに} %章
+
+\section{研究背景} %1.1
+
+\subsection{キャビテーションとは} %1.1.1
+キャビテーションとは、船のスクリューやポンプなどの周りで、水の静圧がごく短時間に局所的に飽和蒸気圧より低くなると、その部分の水が蒸発して50ミクロン以下の気泡が多数発生する現象のことである。
+発生した気泡が消滅する時に非常に高い衝撃圧を局所的に発生し、流体機器が破壊されるなどの影響がある。このような影響から、ロケット墜落事故や原発での冷却水漏洩事故のような重大な事故の原因にもなっている。
+こういった負の側面ばかりではなく、気泡が発する圧力波の積極的な利用も進んでおり、閉鎖水域などに発生させた気泡が出す圧力波によって汚れを剥離して水質を改善したり、人の体内で腫瘍や結石を破壊するなど医療への応用もされている。
+
+\section{関連研究}
+
+\subsection{気泡が発する圧力波を可視化した実験}
+
+\subsection{気泡同士の相互作用に関する実験}
+
+\section{研究目的}
+単一気泡の伸縮を表現するモデルとしてレイリープリセット方程式やケラー方程式が知られています。そこで本研究では、これらのモデルを拡張して気泡の同調現象を表現するような数理モデルを構築し、そのメカニズムを明らかにすることを目的とする。
+
+\chapter{手法} %1.1.2
+%
+\section{数理モデルの構築}
+%
+\subsection{Keller方程式の導出}
+単一気泡が圧力波を放射しながら伸縮することを表現するモデルとして、Keller方程式が知られている。
+Keller方程式は次のように導くことができる。
+球対称な状況での非粘性流体の運動方程式は(1)式となる。
+\begin{align}
+\frac{\partial v}{\partial t} + v\frac{\partial v}{\partial r} = -\frac{1}{\rho}\frac{\partial P}{\partial r}\tag{1}
+\end{align}
+%
+球対称性より$rot\overrightarrow{v}=\overrightarrow{0}$より速度ポテンシャル$\phi$を導入することができるため、vは(2)式で表すことができる。
+\begin{align}
+v=\frac{\partial \phi}{\partial r}\tag{2}
+\end{align}
+%
+(2)を(1)に代入すると、(3)式のベルヌーイの定理を満たす。
+\begin{align}
+\frac{\partial }{\partial r}\left[\frac{\partial \phi}{\partial t}(t, r)+\frac{1}{2}\left(\frac{\partial \phi}{\partial r}(t,r)\right)^2+\int_{}^{p(t,r)}\frac{\text{d}p}{\rho} \right] = 0\tag{3}
+\end{align}
+%
+水中を伝わる音に伴う速度ポテンシャルは、(4)式の波動方程式に従う。
+\begin{align}
+\frac{\partial^2 \phi}{\partial t^2}-c_{L}^2\triangle\phi=0\tag{4}
+\end{align}
+%
+(4)式の解のうち、気泡から外向きに伝わる成分は、(5)式となる。
+\begin{align}
+\phi(t,r)=\frac{f(t-r/c_{L})}{r}\tag{5}
+\end{align}
+%
+また、運動学的境界条件は(6)式となる。
+\begin{align}
+\dot{R}=\frac{\partial \phi}{\partial r}\tag{6}
+\end{align}
+%
+(3), (5), (6)式より(7)式のKeller方程式を導くことができる。
+\begin{align}
+\left(1-\frac{\dot{R}}{c_{L}}\right)R\ddot{R}+\frac{3}{2}\left(1-\frac{\dot{R}}{3c_{L}}\right)\dot{R}^2 = -\left(1+\frac{\dot{R}}{c_{L}}+\frac{R}{c_{L}}\frac{\text{d}}{\text{dt}}\right)\frac{p_{∞}-p(t, R)}{\rho_{L}}\tag{7}
+\end{align}
+%
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{bc.png}
+\caption{力学的境界条件}
+\label{fig:bc}
+\end{figure}
+%
+また(7)式の右辺の$p_{∞}$は大気圧であり、気泡表面の水圧$p_{b}$は気泡内の飽和水蒸気圧と気泡内のその他のガス圧と表面張力と釣り合うという(8)式の力学的境界条件により定まる。
+\begin{align}
+P^{B}(t,R)=p_{v} + \overline{p_{G}}\left(\frac{\overline{R}}{R}\right)^{3k}-\frac{2\sigma}{R}\tag{8}
+\end{align}
+%
+水の圧縮性を考慮しない場合の気泡の伸縮についてはKeller方程式以前にRayleigh-Plesset方程式として(9)式のように導かれていたが、(7)式のKeller方程式で音速$C_{a}$を無限大にすることでも形式的には得ることができる。
+\begin{align}
+R\ddot{R}+\frac{3}{2}\dot{R}^2 = -\frac{p_{∞}-p(t, R)}{\rho_{L}}\tag{9}
+\end{align}
+%
+ケラー方程式は比較的簡単な常微分方程式であるが、ナビエストークス方程式を直接解くことに遜色のない結果をもたらすことが示されている。
+
+\subsection{相互作用する複数気泡のモデルの構築}
+単一気泡が圧力波を放射しながら伸縮することを表現するKeller方程式を踏まえ、複数気泡が相互作用するモデルを構築する。
+複数気泡のうちi番目とj番目の気泡の相互作用を考えたときに、j番目の気泡から放射される圧力波が伝わることでi番目の気泡表面の圧力が(10)式だけ変動する。
+\begin{align}
+p_{ij}(t)=-\rho_{L}(\frac{\partial \phi_{j}}{\partial t}+\frac{1}{2}\left(\frac{\partial \phi_{j}}{\partial r}\right)^2)(t,|x_{i}-x_{j}|-R_{i}(t))\tag{10}
+\end{align}
+%
+(10)式だけ変動することを考慮して、力学的境界条件を(11)式のように改める。
+\begin{align}
+p_{i}(t,R_{i})=p_{i}^B(R_{i})-\sum_{j\neq i}p_{ij}(t)\tag{11}
+\end{align}
+%
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{bcfix.png}
+\caption{相互作用のある時の力学的境界条件}
+\label{fig:bcfix}
+\end{figure}
+%
+
+(11)式のように力学的境界条件改めて、Keller方程式を拡張して(12)式のモデルを構築した。
+\begin{align}
+\left(1-\frac{\dot{R_{i}}}{c_{L}}\right)R_{i}\ddot{R_{i}}+\frac{3}{2}\left(1-\frac{\dot{R_{i}}}{3c_{L}}\right)\dot{R_{i}}^2 = -\left(1+\frac{\dot{R_{i}}}{c_{L}}+\frac{R_{i}}{c_{L}}\frac{\text{d}}{\text{dt}}\right)\frac{p_{∞}-p_i(t, R_{i})}{\rho_{L}}\tag{12}
+\end{align}
+%
+ここで圧力変動量$p_{ij}$は(13)式を満たす時刻$s$、大まかにいえば水中音速が気泡中心間を伝わるのに要する時間だけ過去の時点の他の気泡の半径とその時間変化で表せる。\\
+\begin{align}
+s+\frac{|x_{i}-x_{j}|-R_{i}(t)-R_{j}(s)}{c_{L}}=t\tag{13}
+\end{align}
+%
+(12)式のモデルには様々な近似が含まれているが、有限速度の音波を介した気泡間の相互作用を記述するプロトタイプのモデルと位置づけて解析を行う。
+
+% $======================================================================$
+
+\chapter{数学的解析}
+単一気泡の挙動を記述するレイリープリセットとケラー方程式の数学的な性質については次のことが知られている。
+%
+\section{Rayleigh-Plesset方程式}
+Rayleigh-Plesset方程式では液体が非粘性ならば任意の初期値に対して解は周期的でエネルギーは保存され、R-R’相平面では下図のように上下対称であるが左右には非対称な卵型の周期軌道を描く。
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{rayleighplesset.png}
+\caption{Rayleight-Plesset方程式の周期軌道}
+\label{fig:rayleighplesset}
+\end{figure}
+%
+\section{Keller方程式}
+Keller方程式では任意の初期値に対してエネルギーは指数関数的に減少し、右下図のように少しずつ小さい軌道を描きながら唯一の平衡点$(R_{*}, 0)$に収束する。
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{keller.png}
+\caption{Keller方程式の周期軌道}
+\label{fig:keller}
+\end{figure}
+
+%=====================================================================%
+
+\chapter{数値計算}
+単一気泡の場合は第3章で紹介したように数学的な解析が可能であるが、複数気泡の場合はそれが難しいため数値計算を行なって解析をする。
+%
+\section{系の特徴的な諸量}
+数値計算をするにあたって、系の特徴的な諸量について説明する。気泡内の飽和水蒸気圧、気泡内のその他のガス圧、表面張力、水中音速は典型的な値を用いる。そのとき、系の固有周期は１マイクロ秒、つまり100万ヘルツ程度で極めて高周波の現象であり、1固有周期間に音が進む距離ラムダは$2mm$弱である。\\
+解析対象は気泡は2つで、気泡間距離が近すぎず、平衡状態に近いという条件とする。 \\
+気泡間の距離はラムダと同程度である。平衡状態の気泡半径は数ミクロンで、気泡間の距離よりはるかに小さく、気泡半径の変動幅は平衡半径よりさらにはるかに小さいものである。従って気表面の動径速度は秒速1メートル程度で音速よりはるかに小さいものである
+
+
+\begin{itemize}
+  \item 飽和水蒸気圧：$p_{v} \sim 0.02atm$
+  \item ガス圧：$\bar{p_{G}} \sim 0.8atm for \bar{R} \sim 5\mu m$
+  \item 表面張力係数：$\sigma \sim 0.073N/m$
+  \item 音速：$c_{L} \sim 1478m/s$
+  \item 固有周期：$T_{prd} \sim 1.15\mu s(\sim 10^6Hz)$
+  \item 1固有周期で音が進む距離：$\lambda \sim 1.7mm$
+  \item 気泡中心間距離：$d \sim 1mm$
+  \item 平衡気泡半径：$R_{*} \sim 5\mu m$
+  \item 気泡半径の振幅：$\delta R \sim 0.1\mu m$
+  \item 気泡表面の伸縮速度：$V=\dot{R} \sim 1.0m/s(<<c_{L})$
+\end{itemize}
+%
+\section{数値計算結果}
+\subsection{気泡間距離$0.25\lambda$の場合}
+\subsection{気泡間距離が$0.75\lambda$の場合}
+
+\chapter{位相進行速度}
+\section{実験方法}
+\section{実験結果}
+\section{考察}
+
+\chapter{位相同調のメカニズム}
+研究のまとめ。
+
+\chapter{まとめ}
+
+
+%=====================================================================================
+
+
+%=====================================================================================
+
+\addcontentsline{toc}{chapter}{参考文献} %章立てせずに目次に追加するおまじない
+\renewcommand{\bibname}{参考文献} %これがないと，タイトルが「関連図書」になってしまう
+\bibliography{bibtexファイル名} %bibtexファイルの読み込み
+\bibliographystyle{junsrt} %本文に\cite{}を入れることで，参考文献表示
+
+\end{document}

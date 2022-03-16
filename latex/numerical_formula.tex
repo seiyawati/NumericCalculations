@@ -44,3 +44,14 @@ p_i^{out}+\sum_jp_{ij}^{in}=p_{V}+\overline{p_{G,i}}\left(\frac{\overline{R}}{R_
 
 % 位相進行速度の式
 \frac{\text{d}\theta_{i}}{\text{d}t}(t)=\left(\frac{\text{d}R_{i}}{\text{d}t},\frac{\text{d}V_{i}}{\text{d}t}\right)\mid\left(R_i^{RP}, V_i^{RP}\right)・\left(\dot{R}_i^{RP}, \dot{V}_i^{RP}\right)\frac{1}{(\dot{R}_i^{RP})^2+(\dot{V}_i^{RP})^2}\frac{2\pi}{T_{prd}}\approx\frac{2\pi}{T_{prd}}\left[1-\frac{1}{\rho_{L}}\frac{\dot{V}_i^{RP}}{{R}_i^{RP}}\frac{1}{(\dot{R}_i^{RP})^2+(\dot{V}_i^{RP})^2}\sum_{j\neq i}p_{ij}\right]
+
+% 相互作用入りモデル1周期間での2気泡の位相差の等値線
+\int_{0}^{T_{prd}}(\frac{\text{d}\theta_{2}}{\text{d}t}-\frac{\text{d}\theta_{1}}{\text{d}t})(t) dt(\delta\theta_{0}, \frac{\mid x_{2}-x_{1}\mid}{\lambda})
+
+% 相互作用によるエネルギー生成のの等値線
+-\int_{0}^{T_{prd}}\sum_{i}V_{i}R_{i}^2(\sum_{j\neq i}p_{ij})(t) dt(\delta\theta_{0}, \frac{\mid x_{2}-x_{1}\mid}{\lambda})
+
+% 位相同調のメカニズム
+\frac{\text{d}\theta_{i}}{\text{d}t}(t)\approx\frac{2\pi}{T_{prd}}\left[1-\frac{1}{\rho_{L}}\frac{\dot{V}_i^{RP}}{{R}_i^{RP}}\frac{1}{(\dot{R}_i^{RP})^2+(\dot{V}_i^{RP})^2}\sum_{j\neq i}p_{ij}\right]
+
+\int_{0}^{T_{prd}}(\frac{\text{d}\theta_{2}}{\text{d}t}-\frac{\text{d}\theta_{1}}{\text{d}t})(t)dt 

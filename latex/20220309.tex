@@ -232,7 +232,72 @@ Keller方程式では任意の初期値に対してエネルギーは指数関�
 %
 \section{数値計算結果}
 \subsection{気泡間距離$0.25\lambda$の場合}
+図4.1は、λを1固有周期間に音が進む距離として、2つの気泡の中心間距離が0.25λの場合の数値計算の結果である。横軸が時間、縦軸が二つの気泡の半径である。始めに少しずれていた位相の差が広がっゆき、10回程度の振動でだんだんと逆位相に近ずいているのがわかる。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{02510.png}
+\caption{計算開始後10数周期}
+\label{fig:02510}
+\end{figure}
+
+図4.2はさらに時間が経ち約60周期の振動を経た時の様子である。10周期が経過した図4.1と比べるとほぼ完全に逆位相に固定されており、同時に振幅もほぼ完全に一致している。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{02560.png}
+\caption{計算開始後約60周期}
+\label{fig:02560}
+\end{figure}
+
+図4.3は2つの気泡の位相差の時間変化を表している。細かいギザギザが振動1回に対応しており、個々の気泡の位相はその間に0から2πまで変化しているが、位相差はその数十倍の時間をかけてゆっくりとπに収束していく様子がわかる。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{025div.png}
+\caption{位相差の時間変化}
+\label{fig:025div}
+\end{figure}
+
 \subsection{気泡間距離が$0.75\lambda$の場合}
+
+気泡間距離0.25λと同じ初期値で気泡間距離を3倍の0.75λにした場合は、図4.4のように逆に位相が少しずつ近づくようにふるまう。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{07510.png}
+\caption{計算開始後約10周期}
+\label{fig:07510}
+\end{figure}
+
+図4.5のように約60周期の振動を経た頃にはほぼ完全に同位相に固定され、振幅もほぼ一致していることがわかる。振幅が先ほどの気泡間距離0.25λより小さいのは、距離がより離れて相手に拾われるエネルギーが少ないためである。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{07560.png}
+\caption{計算開始後約60周期}
+\label{fig:07560}
+\end{figure}
+
+図4.6の位相差を見ると、やはり相互作用が先ほどの気泡間距離が0.25λの時より弱いために先ほどのケースよりさらにゆっくりであるが、固有周期の200倍程度の時間をかけて2πに収束しているのが分かる。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{075div.png}
+\caption{位相差の時間変化}
+\label{fig:075div}
+\end{figure}
+
+\subsection{気泡間距離が他の値の場合}
+
+気泡間距離が他の値の場合の位相差の漸近値も調べたが、図4.7のように0.5λおきにπと０が交替する結果となった。
+
+\begin{figure}[tbh]
+\centering
+\includegraphics[width=6cm, height=4cm]{vardistance.png}
+\caption{様々な値での気泡間距離}
+\label{fig:vardistance}
+\end{figure}
 
 \chapter{位相進行速度}
 \section{実験方法}
